@@ -1,0 +1,40 @@
+{
+  "name": "lantern",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://lantern.academy",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "lantern": "file:",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-modal": "^3.16.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.15.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.12.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.0.1"
+  },
+  "description": "We are an online platform connecting Nigerians with expert tech tutors, offering personalized courses in various tech fields like software engineering, digital marketing, UX/UI design and data analytics. Whether you’re a complete beginner or looking to level up, we help you learn the skills needed to thrive in today’s tech-driven world.",
+  "main": "eslint.config.js",
+  "author": "",
+  "license": "ISC"
+}
