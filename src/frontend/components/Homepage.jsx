@@ -113,7 +113,7 @@ export default function Homepage() {
                 className="mx-auto max-w-[402px] lg:mx-0 lg:max-w-[none]  flex space-x-[8px] p-[1.5rem] pl-[1rem] rounded-[1rem] bg-[#F1F4F9] border-[1px] border-[#D7E5FB]"
               >
                 <img
-                  src={`./${data.path}`}
+                  src={data.path}
                   className="w-[40px] h-[40px]"
                   alt=""
                 />

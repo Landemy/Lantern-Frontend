@@ -20,6 +20,7 @@ const BecomeTutorForm = () => {
   });
 
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -39,77 +40,79 @@ const BecomeTutorForm = () => {
 
     // Validation for text inputs
     if (
-        !formData.fullName ||
-        !formData.phoneNumber ||
-        !formData.email ||
-        !formData.course ||
-        !formData.duration ||
-        !formData.fee ||
-        !formData.uniqueInfo
+      !formData.fullName ||
+      !formData.phoneNumber ||
+      !formData.email ||
+      !formData.course ||
+      !formData.duration ||
+      !formData.fee ||
+      !formData.uniqueInfo
     ) {
-        setMessage("Please fill all required fields.");
-        return;
+      setMessage("Please fill all required fields.");
+      return;
     }
 
     // Validation for email format
     if (!emailRegex.test(formData.email)) {
-        setMessage("Please enter a valid email address.");
-        return;
+      setMessage("Please enter a valid email address.");
+      return;
     }
 
     // Validation for file inputs
     if (!formData.syllabusFile) {
-        setMessage("Please upload the course outline/syllabus.");
-        return;
+      setMessage("Please upload the course outline/syllabus.");
+      return;
     }
     if (!formData.cvFile) {
-        setMessage("Please upload your CV.");
-        return;
+      setMessage("Please upload your CV.");
+      return;
     }
-
+    setLoading(true);
     try {
-        const formDataToSend = new FormData();
-        formDataToSend.append("fullName", formData.fullName);
-        formDataToSend.append("phoneNumber", formData.phoneNumber);
-        formDataToSend.append("email", formData.email);
-        formDataToSend.append("course", formData.course);
-        formDataToSend.append("portfolio", formData.portfolio);
-        formDataToSend.append("duration", formData.duration);
-        formDataToSend.append("fee", formData.fee);
-        formDataToSend.append("uniqueInfo", formData.uniqueInfo);
-        formDataToSend.append("syllabusFile", formData.syllabusFile);
-        formDataToSend.append("cvFile", formData.cvFile);
+      const formDataToSend = new FormData();
+      formDataToSend.append("fullName", formData.fullName);
+      formDataToSend.append("phoneNumber", formData.phoneNumber);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("course", formData.course);
+      formDataToSend.append("portfolio", formData.portfolio);
+      formDataToSend.append("duration", formData.duration);
+      formDataToSend.append("fee", formData.fee);
+      formDataToSend.append("uniqueInfo", formData.uniqueInfo);
+      formDataToSend.append("syllabusFile", formData.syllabusFile);
+      formDataToSend.append("cvFile", formData.cvFile);
 
-        // Fetch POST request
-        const response = await fetch("https://api.lantern.academy/api/tutors/submit", {
-            method: "POST",
-            body: formDataToSend, // FormData handles multipart/form-data automatically
+      // Fetch POST request
+      const response = await fetch("https://api.lantern.academy/api/tutors/submit", {
+        method: "POST",
+        body: formDataToSend, // FormData handles multipart/form-data automatically
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        setMessage("Application submitted successfully!");
+        setFormData({
+          fullName: "",
+          phoneNumber: "",
+          email: "",
+          course: "",
+          portfolio: "",
+          duration: "",
+          fee: "",
+          uniqueInfo: "",
+          syllabusFile: null,
+          cvFile: null,
         });
-
-        if (response.ok) {
-            const result = await response.json();
-            setMessage("Application submitted successfully!");
-            setFormData({
-                fullName: "",
-                phoneNumber: "",
-                email: "",
-                course: "",
-                portfolio: "",
-                duration: "",
-                fee: "",
-                uniqueInfo: "",
-                syllabusFile: null,
-                cvFile: null,
-            });
-        } else {
-            const error = await response.json();
-            setMessage(error.error || "Error submitting application. Please try again.");
-        }
+      } else {
+        const error = await response.json();
+        setMessage(error.error || "Error submitting application. Please try again.");
+      }
     } catch (error) {
-        console.error("Error:", error);
-        setMessage("An error occurred. Please try again.");
+      console.error("Error:", error);
+      setMessage("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
     }
-};
+  };
 
 
 
@@ -271,11 +274,16 @@ const BecomeTutorForm = () => {
               <button
                 type="submit"
                 className="w-full lg:w-5/12 mx-auto text-center bg-gradient-to-b from-[#152F56] to-[#2E67BC] text-white py-3 rounded-[16px] hover:bg-[#3b7ad8] transition text-[18px]"
+                disabled={loading}
               >
-                Submit Application
+                {loading ? "Submitting..." : "Submit Application"}
               </button>
             </div>
-            {message && <p className="text-center mt-4 text-red-600">{message}</p>}
+            {message && (
+              <p className={`mt-2 text-sm ${message.includes("successfully") ? "text-green-500" : "text-red-500"}`}>
+                {message}
+              </p>
+            )}
           </form>
         </div>
       </div>

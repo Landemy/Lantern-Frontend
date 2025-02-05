@@ -18,6 +18,7 @@ const DesktopFooter = () => {
 
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const validateEmail = (email) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -26,31 +27,31 @@ const DesktopFooter = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         // Clear previous messages
         setMessage("");
-    
+
         // Validate email
         if (!email.trim()) {
             setMessage("Please enter an email.");
             return;
         }
-    
+
         if (!validateEmail(email)) {
             setMessage("Please enter a valid email address.");
             return;
         }
-    
+        setLoading(true);
         try {
             // Send the email to the backend
-            const response = await fetch("https://api.lantern.academy/api/newsletters", { 
+            const response = await fetch("https://api.lantern.academy/api/newsletters", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ email }),
             });
-    
+
             // Check if the response status is ok (200-299)
             if (!response.ok) {
                 const errorText = await response.text();
@@ -69,10 +70,12 @@ const DesktopFooter = () => {
         } catch (error) {
             console.error("Error submitting email:", error);
             setMessage("An error occurred. Please try again.");
+        } finally {
+            setLoading(false);
         }
     };
-    
-    
+
+
 
     return (
         <footer className="hidden lg:block bg-gradient-to-b from-[#3160CF] w-full to-[#264AA0] text-white py-10">
@@ -128,12 +131,18 @@ const DesktopFooter = () => {
                                 className="flex-1 px-4 py-3 rounded-[15px] text-gray-900 "
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
+                                disabled={loading}
                             />
                             <button type="submit" className="px-5 py-2 bg-gradient-to-b from-[#152F56] to-[#2E67BC] rounded-full text-white absolute right-2 top-1">
-                                Subscribe
+                                {loading ? "Submitting..." : "Subscribe"}
                             </button>
                         </form>
-                        {message && <p className="mt-2 text-sm text-red-500">{message}</p>}
+                        {message && (
+                            <p className={`mt-2 text-sm ${message.includes("successfully") ? "text-green-500" : "text-red-500"}`}>
+                                {message}
+                            </p>
+                        )}
+
                     </div>
                 </div>
                 <div className="text-center pt-4">
