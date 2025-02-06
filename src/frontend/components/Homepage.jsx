@@ -4,7 +4,7 @@ import HeroPic from "../../assets/hero.png";
 import TopDesign from "../../layout/header/TopDesign";
 import Circle from "./icons/circle";
 import EmptyCircle from "./icons/empty_circle";
-import { courses, list_data } from "../utils/data";
+import { courses, list_data, tutor_guide } from "../utils/data";
 import FaceShadow from "../../assets/face_shadow";
 
 export default function Homepage() {
@@ -138,6 +138,47 @@ export default function Homepage() {
                       </button>
                     </div>
                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="px-[1.5rem] py-[2rem] flex flex-col items-center space-y-[1rem] vlg:py-[3rem]">
+        <h1 className="font-semibold flex flex-col items-center text-[1.5rem] text-darkBlue space-y-[3px] md:space-y-[10px] md:text-[2rem] vlg:text-[3rem]">
+          <span className="block">
+            <Circle />
+          </span>
+          <span>How to get a Tutor</span>
+        </h1>
+
+        <div className="relative">
+          <div className="absolute top-[61px] left-[150px] hidden vlg:block h-[4px] w-[850px] bg-[#EFF3FC]"></div>
+          <div className="space-y-[2rem] vlg:space-y-0 grid vlg:grid-cols-3 vlg:[grid-gap:2rem]">
+            {tutor_guide.map((data, i) => (
+              <div
+                key={i}
+                className="py-[1rem] space-y-[1.5rem] flex flex-col items-center vlg:py-[2rem]"
+              >
+                <h1
+                  className={`z-[3] w-[68px] flex items-center justify-center rounded-[8px] h-[35px] p-[8px] md:text-[1.5rem] bg-darkBlue font-semibold text-white md:w-[108px] md:h-[61px] ${
+                    i === 1 ? "bg-[#6392D9]" : i === 2 ? "bg-[#BDD1EF]" : ""
+                  }`}
+                >
+                  Step {i + 1}
+                </h1>
+
+                <div className="space-y-[2.5rem]">
+                  {data.map((el) => (
+                    <div key={el} className="space-y-[2.5rem] md:max-w-[368px]">
+                      <div className="text-center text-[1rem] text-darkBlue flex flex-col items-center space-y-[5px] vlg:flex-row vlg:text-left vlg:space-x-[8px]">
+                        <span className="block">
+                          <EmptyCircle />
+                        </span>
+                        <p>{el}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}

@@ -9,7 +9,7 @@ import oluPics from "../../assets/olumide.png";
 import ochayiPics from "../../assets/ochayi.png";
 import temiPics from "../../assets/temi.png";
 import maryPics from "../../assets/mary.png";
-import temilehinPics from "../../assets/temilehin.png";
+import timiPics from "../../assets/timi.jpg";
 import anuoluwapoPics from "../../assets/anuoluwapo.svg"
 import ayoPics from "../../assets/ayodele.png";
 import bamidelePics from "../../assets/bamidele.png";
@@ -303,16 +303,16 @@ const tutors = [
     ],
   },
   {
-    heading: "Network Engineering Tutors",
-    name: "Temilehin ",
-    image: temilehinPics,
+    heading: "Network Engineering & Java Backend Tutors",
+    name: "Timi",
+    image: timiPics,
     students: "324",
-    position: "Network Engineering Tutor",
+    position: "Network Engineering & Java Backend Tutor",
     rating: "5/5",
     reviews: "234",
     about:
-      "I’m Temilehin, a network engineer with multiple certifications and years of experience managing network systems.",
-    course: "Network Engineering course",
+      "I’m Timi, a Network Engineer and backend Java developer with multiple certifications and years of experience managing network systems.",
+    course: "Network Engineering and Java Backend course",
     type: "online and physical classes",
     learn: [
       "Perfect for beginners, anyone can enroll.",

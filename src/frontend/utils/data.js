@@ -31,6 +31,24 @@ export const list_data = [
   ],
 ];
 
+export const tutor_guide = [
+  [
+    "Ensure the course or class you would like to enroll in is listed on our Web App",
+  ],
+  [
+    "Scan through the list of tutors and use any of the following indicators to make your choice: ratings, accomplishment, and reviews",
+  ],
+  [
+    "Click on \"I'm Picking you\" button on your preferred tutor",
+  ],
+  [
+    "A form will popup. Kindly fill accordingly and submit",
+  ],
+  [
+    "You'll be automatically added to our community and a support staff will reach out for a successfull pairing with your selected tutor.",
+  ],
+]
+
 export const courses = [
   {
     title: "Digital Marketing",
