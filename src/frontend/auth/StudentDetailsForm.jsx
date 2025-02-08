@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TopDesign from "../../layout/header/TopDesign";
 import becometutoricon from "../../assets/becometutoricon.svg";
+import {submitStudentDetails} from '../api/student'
 
 const StudentDetailsForm = ({ closeModal }) => {
   const [formData, setFormData] = useState({
