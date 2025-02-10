@@ -60,50 +60,49 @@ const StudentDetailsForm = ({ closeModal }) => {
     setMessage("");
 
     try {
-      const formDataToSend = new FormData();
-      formDataToSend.append("fullName", formData.fullName);
-      formDataToSend.append("phoneNumber", formData.phoneNumber);
-      formDataToSend.append("email", formData.email);
-      formDataToSend.append("location", formData.location);
-      if (formData.sponsor?.trim()) {
-        formDataToSend.append("sponsor", formData.sponsor);
-      }
+        const formDataToSend = {
+            fullName: formData.fullName.trim(),
+            phoneNumber: formData.phoneNumber.trim(),
+            email: formData.email.trim(),
+            location: formData.location.trim(),
+            sponsor: formData.sponsor.trim() || null, // Ensure sponsor is always included
+            selectedCourses: formData.selectedCourses, // Send as an array
+        };
 
-     
-      formData.selectedCourses.forEach((course) => {
-        formDataToSend.append("selectedCourses", course);
-      });
+        console.log("Submitting Data:", formDataToSend);
 
-      console.log("Submitting Data:", Object.fromEntries(formDataToSend.entries()));
-
-      const response = await fetch("https://api.lantern.academy/api/students/submit", {
-        method: "POST",
-        body: formDataToSend,
-      });
-
-      const responseData = await response.json();
-      console.log("API Response:", responseData);
-
-      if (response.ok) {
-        setMessage("Student Details submitted successfully!");
-        setFormData({
-          fullName: "",
-          phoneNumber: "",
-          email: "",
-          location: "",
-          sponsor: "",
-          selectedCourses: [],
+        const response = await fetch("https://api.lantern.academy/api/students/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formDataToSend),
         });
-      } else {
-        setMessage(responseData.error || "Error submitting student details.");
-      }
+
+        const responseData = await response.json();
+        console.log("API Response:", responseData);
+
+        if (response.ok) {
+            setMessage("Student Details submitted successfully!");
+            setFormData({
+                fullName: "",
+                phoneNumber: "",
+                email: "",
+                location: "",
+                sponsor: "",
+                selectedCourses: [],
+            });
+        } else {
+            setMessage(responseData.error || "Error submitting student details.");
+        }
     } catch (error) {
-      console.error("Error:", error);
-      setMessage("An error occurred. Please try again.");
+        console.error("Error:", error);
+        setMessage("An error occurred. Please try again.");
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
-  };
+};
+
 
   return (
     <div>
