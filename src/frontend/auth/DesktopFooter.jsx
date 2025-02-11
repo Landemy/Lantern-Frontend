@@ -108,9 +108,9 @@ const DesktopFooter = () => {
                         <p className="text-white mb-6">Email us: info@lantern.academy</p>
                         <p className="text-white flex">
                             Follow us:
-                            <span className="ml-7"><img src={twitterlogo} alt="Twitter" /></span>
-                            <span className="ml-7"><img src={facebooklogo} alt="Facebook" /></span>
-                            <span className="ml-7"><img src={linkedinlogo} alt="LinkedIn" /></span>
+                            <span className="ml-7"><a href="https://x.com/lantern_academy?s=21" target="_blank"><img src={twitterlogo} alt="Twitter" /></a></span>
+                            <span className="ml-7"><a href="https://www.facebook/share/1B4PRZK5RM/?mibextid=wwXlfr" target="_blank"><img src={facebooklogo} alt="Facebook" /></a></span>
+                            <span className="ml-7"><a href="https://www.instagram.com/lantern.academy?igsh=ZzNxbno1Ym1lYWRp&utm_source=qr" target="_blank"><img src={linkedinlogo} alt="LinkedIn" /></a></span>
                         </p>
                     </div>
                 </div>
