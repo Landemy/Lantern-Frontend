@@ -2,6 +2,7 @@ import { useState } from "react";
 import TopDesign from "../../layout/header/TopDesign";
 import becometutoricon from "../../assets/becometutoricon.svg";
 import {submitStudentDetails} from '../api/student'
+import SuccessPopup from "../components/SuccessPopup";
 
 const StudentDetailsForm = ({ closeModal }) => {
   const [formData, setFormData] = useState({
@@ -16,6 +17,8 @@ const StudentDetailsForm = ({ closeModal }) => {
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -84,6 +87,7 @@ const StudentDetailsForm = ({ closeModal }) => {
 
         if (response.ok) {
             setMessage("Student Details submitted successfully!");
+            setShowSuccessPopup(true);
             setFormData({
                 fullName: "",
                 phoneNumber: "",
@@ -208,6 +212,8 @@ const StudentDetailsForm = ({ closeModal }) => {
             </div>
             {message && <p className={`text-center text-sm ${message.includes("successfully") ? "text-green-500" : "text-red-500"}`}>{message}</p>}
           </form>
+          {showSuccessPopup && <SuccessPopup onClose={() => { setShowSuccessPopup(false); closeModal(); }} />}
+
         </div>
       </div>
     </div>
