@@ -181,6 +181,7 @@ const StudentDetailsForm = ({ closeModal }) => {
                     "UI/UX Design",
                     "Data Science/Analytics",
                     "Backend Development",
+                    "Full Stack Development",
                     "IELTS",
                     "Digital Marketing",
                     "Project Management",
