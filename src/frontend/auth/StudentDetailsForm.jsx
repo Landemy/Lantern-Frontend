@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TopDesign from "../../layout/header/TopDesign";
 import becometutoricon from "../../assets/becometutoricon.svg";
-import {submitStudentDetails} from '../api/student'
+import { submitStudentDetails } from '../api/student'
 import SuccessPopup from "../components/SuccessPopup";
 
 const StudentDetailsForm = ({ closeModal }) => {
@@ -63,49 +63,49 @@ const StudentDetailsForm = ({ closeModal }) => {
     setMessage("");
 
     try {
-        const formDataToSend = {
-            fullName: formData.fullName.trim(),
-            phoneNumber: formData.phoneNumber.trim(),
-            email: formData.email.trim(),
-            location: formData.location.trim(),
-            sponsor: formData.sponsor.trim() || null, // Ensure sponsor is always included
-            selectedCourses: formData.selectedCourses, // Send as an array
-        };
+      const formDataToSend = {
+        fullName: formData.fullName.trim(),
+        phoneNumber: formData.phoneNumber.trim(),
+        email: formData.email.trim(),
+        location: formData.location.trim(),
+        sponsor: formData.sponsor.trim() || null, // Ensure sponsor is always included
+        selectedCourses: formData.selectedCourses, // Send as an array
+      };
 
-        console.log("Submitting Data:", formDataToSend);
+      console.log("Submitting Data:", formDataToSend);
 
-        const response = await fetch("https://api.lantern.academy/api/students/submit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formDataToSend),
+      const response = await fetch("https://api.lantern.academy/api/students/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formDataToSend),
+      });
+
+      const responseData = await response.json();
+      console.log("API Response:", responseData);
+
+      if (response.ok) {
+        setMessage("Student Details submitted successfully!");
+        setShowSuccessPopup(true);
+        setFormData({
+          fullName: "",
+          phoneNumber: "",
+          email: "",
+          location: "",
+          sponsor: "",
+          selectedCourses: [],
         });
-
-        const responseData = await response.json();
-        console.log("API Response:", responseData);
-
-        if (response.ok) {
-            setMessage("Student Details submitted successfully!");
-            setShowSuccessPopup(true);
-            setFormData({
-                fullName: "",
-                phoneNumber: "",
-                email: "",
-                location: "",
-                sponsor: "",
-                selectedCourses: [],
-            });
-        } else {
-            setMessage(responseData.error || "Error submitting student details.");
-        }
+      } else {
+        setMessage(responseData.error || "Error submitting student details.");
+      }
     } catch (error) {
-        console.error("Error:", error);
-        setMessage("An error occurred. Please try again.");
+      console.error("Error:", error);
+      setMessage("An error occurred. Please try again.");
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
-};
+  };
 
 
   return (
@@ -156,13 +156,16 @@ const StudentDetailsForm = ({ closeModal }) => {
 
             <div className="flex flex-col items-center">
               <label className="block font-medium mb-2 text-left">Sponsor (Optional)</label>
-              <input
-                type="text"
+              <select
                 name="sponsor"
                 value={formData.sponsor}
                 onChange={handleInputChange}
-                className="w-full lg:w-1/2 p-3 border border-[#152F56] rounded"
-              />
+                className="w-full lg:w-1/2 p-3 border border-[#152F56] rounded bg-white"
+              >
+                <option value="">Select Sponsor</option>
+                <option value="Myself">Myself</option>
+                <option value="Other">Other</option>
+              </select>
             </div>
 
             <div className="bg-[#F1F4F9] mx-1 lg:mx-20 py-6 px-4 lg:px-0 gap-8 flex flex-col items-start lg:items-center">
@@ -172,8 +175,8 @@ const StudentDetailsForm = ({ closeModal }) => {
                 </label>
                 <div className="grid grid-cols-1 gap-2">
                   {[
-                    "Software Engineering",
-                    "ICAN",
+                    "Frontend Development",
+                    "ATS/ICAN",
                     "GMAT",
                     "UI/UX Design",
                     "Data Science/Analytics",
