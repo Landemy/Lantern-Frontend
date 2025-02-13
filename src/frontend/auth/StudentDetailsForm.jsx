@@ -115,7 +115,7 @@ const StudentDetailsForm = ({ closeModal }) => {
         onClick={(e) => {
           if (e.target.id === "overlay") closeModal();
         }}
-        className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center overflow-y-auto lg:pt-[450px] pt-[700px] text-[#152F56]"
+        className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center overflow-y-auto lg:pt-[450px] pt-[750px] text-[#152F56]"
       >
         <div className="bg-white px-10 pb-6 rounded-lg shadow-lg relative w-full max-w-3xl">
           <TopDesign />
@@ -182,6 +182,9 @@ const StudentDetailsForm = ({ closeModal }) => {
                     "Data Science/Analytics",
                     "Backend Development",
                     "IELTS",
+                    "TOEFL",
+                    "SAT",
+                    "GRE",
                     "Digital Marketing",
                     "Project Management",
                     "Virtual Assistant",
