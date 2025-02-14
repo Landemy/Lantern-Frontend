@@ -1,0 +1,33 @@
+.price h2{
+    margin-top: 20px;
+}
+.price .table{
+    width: 100%;
+    margin: 20px 0px;
+}
+.price .table tr th, .price .table tr td{
+    text-align: left;
+    color: #152F56;
+}
+.price .table, .price th, .price td{
+    border: 1px solid #152F56;
+    border-collapse: collapse;
+}
+.price ul, .price li{
+    margin: 0;
+    padding: 0;
+    color: #152F56;
+}
+.price th, .price td{
+    padding: 10px 0px;
+}
+.price th, .price td{
+    padding-left: 10px;
+}
+.price{
+    margin-top: 100px;
+}
+
+.price .table:last-child{
+    margin-bottom: 100px;
+}
