@@ -34,12 +34,11 @@ const PricePlan = () => {
                         <PricingSection title="School of Business and Management" courses={businessCourses} />
                         <ExamPricingSection />
 
-                        <p className="vlg:max-w-[700px] md:text-lg text-lightBlue mt-4 mb-5 mb"> <b>
+                        <p className="vlg:max-w-[700px] md:text-lg text-lightBlue mt-4 mb-5 mb"> 
                            <span>Our Account Details</span> <br />
                            Account Number: 8240438457 <br />
                            Bank Name: MoniePoint MFB <br />
                            Account Holder: Distance Learning ORG <br />
-                           </b>
                         </p>
                     </div>
                 </div>

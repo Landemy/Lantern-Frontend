@@ -45,3 +45,12 @@
 .mb span{
     font-size: 40px;
 }
+
+@media screen and (max-width: 600px) {
+    .mb{
+        font-size: 20px;
+    }
+    .mb span{
+        font-size: 30px;
+    }
+}
