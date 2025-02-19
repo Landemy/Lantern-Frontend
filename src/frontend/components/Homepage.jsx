@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import GroupPic from "../../assets/group_pic.png";
 import Star from "../../assets/star.svg";
 import HeroPic from "../../assets/hero.png";
@@ -6,8 +7,19 @@ import Circle from "./icons/circle";
 import EmptyCircle from "./icons/empty_circle";
 import { courses, list_data, tutor_guide } from "../utils/data";
 import FaceShadow from "../../assets/face_shadow";
+import Popup from "../../assets/popup.jpg";
 
 export default function Homepage() {
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowModal(true);
+    }, 5000); // 5 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <div className="bg-[#F3F1FC]">
@@ -52,6 +64,20 @@ export default function Homepage() {
       <div className="relative z-[1] mt-[-20px]">
         <TopDesign />
       </div>
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-5 rounded-lg shadow-lg relative max-w-lg w-full">
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-2 right-2 bg-darkBlue text-white w-8 h-8 flex items-center justify-center rounded-full"
+            >
+              &times;
+            </button>
+            <img src={Popup} alt="Popup Image" className="w-full h-auto rounded" />
+          </div>
+        </div>
+      )}
       <div className="px-[1.5rem] py-[2rem] flex flex-col items-center space-y-[1rem] vlg:py-[3rem]">
         <h1 className="font-semibold flex flex-col items-center text-[1.5rem] text-darkBlue space-y-[3px] md:space-y-[10px] md:text-[2rem] vlg:text-[3rem]">
           <span className="block">
