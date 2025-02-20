@@ -51,7 +51,7 @@ export const tutor_guide = [
 
 export const courses = [
   {
-    title: "Digital Marketing",
+    title: "Product/Digital Marketing",
     text: "Master social media marketing, SEO and online ads ",
     path: dgImage,
     subText: "Remote job salary: $1,200",
@@ -63,22 +63,28 @@ export const courses = [
     subText: "Remote job salary: $1,080",
   },
   {
-    title: "Software Enginerring",
+    title: "Frontend Development",
     text: "Learn how to build mobile and web apps from scratch",
     path: sweImage,
     subText: "Remote job salary: $2,000",
-  },
-  {
-    title: "UX/UI Design",
-    text: "Master how to design great user experience on digital interfaces",
-    path: uxImage,
-    subText: "Remote job salary: $1,490",
   },
   {
     title: "Back-end Development",
     text: "Discover how websites and apps work behind the scenes ",
     path: backendImage,
     subText: "Remote job salary: $1,600",
+  },
+  {
+    title: "Fullstack Development",
+    text: "Discover how to make dynamic websites for both frontend and backend technologies",
+    path: sweImage,
+    subText: "Remote job salary: $3,000",
+  },
+  {
+    title: "UX/UI Design",
+    text: "Master how to design great user experience on digital interfaces",
+    path: uxImage,
+    subText: "Remote job salary: $1,490",
   },
   {
     title: "Data Science/Analytics",
