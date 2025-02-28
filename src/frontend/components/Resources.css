@@ -19,6 +19,7 @@
 }
 .single-post .content{
     line-height: 35px;
+    text-align: justify;
 }
 
 @media screen and (max-width: 600px) {
