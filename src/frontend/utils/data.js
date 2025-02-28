@@ -12,6 +12,7 @@ import satImage from "../../assets/sat.svg";
 import icanImage from "../../assets/ican.png";
 import pmImage from "../../assets/pm.png";
 import duolingoImage from "../../assets/duolingo.png";
+import kwaraBlog from "../../assets/blog/kwara.jpg"
 
 export const list_data = [
   [
@@ -21,8 +22,8 @@ export const list_data = [
   ],
   [
     "Explore the courses/classes that fits you",
-    `Whether it’s ICAN,web design, digital marketing or ATS, there’s a space for you`,
-    "No need to worry-it’s all beginner friendly",
+    `Whether it's ICAN,web design, digital marketing or ATS, there's a space for you`,
+    "No need to worry-it's all beginner friendly",
   ],
   [
     "Select a tutor on this website and start learning",
@@ -142,4 +143,17 @@ export const courses = [
     subText: "Get ahead of others with multilingual skills",
   },
   
+];
+
+export const blogPosts = [
+  {
+    id: 1,
+    title: "Kwara State launches coding and digital literacy training in 50 public schools",
+    author: "Olumide Emmanuel",
+    date: "Feb. 27, 2025",
+    image: kwaraBlog,
+    content1: "The Kwara State Government has launched a Coding and Digital Literacy training programme for at least 50 public primary and junior secondary schools across the state. The initiative, aimed at strengthening education sector investments, is expected to impact over 150 students per school in the pilot phase. The programme was organised by the Office of the Special Assistant to the Governor on Digital and Innovation, Mr. Ishola Kayode. It is designed to equip public school students with essential digital skills to navigate the modern technological landscape. Governor Abdulrahman Abdulrazaq, Senior Adviser and Counsellor to the Governor, Alh. Sa'adu Salau, highlighted the importance of embracing the digital revolution, to build a digital society and equip Kwara's children for global competitiveness.",
+    content2: "'We are now faced with the reality of the digital revolution. Today marks the start of the digital literacy training in 50 Kwara schools 'We hope to lay the foundation for a digital society, ensuring Kwara's children are not left behind globally,' Salau stated. School selection The pilot scheme includes schools such as Bishop's Smith Junior Secondary School, Ilorin Grammar School, and Sheikh Alimi L.G.E.A Primary School. Mr. Ishola explained that the initiative was launched to ensure that public school students remain competitive in the digital age. 'It's crucial they become digitally literate to solve community problems using technology. Without this knowledge, solving problems is impossible. 'The selection of 50 schools for the pilot includes 15 from Kwara Central, 13 from the North, and 22 from the South,' he stated. Mr. Ishola confirmed that the programme would undergo a data-driven assessment to guide its expansion in subsequent phases. ",
+    content3: "Mrs. Akanbi Janet Ayoola, Principal of Bishop Smith College (Junior Session), praised the initiative as a significant step in preparing students for the era of technology and artificial intelligence. Several students also expressed their appreciation for the initiative. Opadili Boluwatife and Akinola Abdulrahman, among others, commended the state government's efforts and pledged to make the most of the opportunity. What you should know: Kwara State continues to prioritize digital literacy among its youth. In February 2025, the state government launched a digital literacy training program aimed at equipping over 28,000 adolescent girls in 70 public secondary schools across the three senatorial districts with essential digital skills for the future. Organized by the Ministry of Education and Human Capital Development in collaboration with the Adolescent Girls Initiative for Learning and Empowerment (AGILE) project, the program aimed to equip girls with essential digital skills for future readiness. Additionally, the 'Digital Kwara' initiative, launched under Governor Abdulrahman Abdulrazaq's leadership, focuses on leveraging digital technologies to drive development, improve governance, and enhance the quality of life for residents"
+  },
 ];

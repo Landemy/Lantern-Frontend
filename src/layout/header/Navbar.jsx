@@ -78,12 +78,12 @@ const Navbar = () => {
         {/* Desktop Links */}
         <ul className="items-center hidden space-x-12 vlg:flex">
           <li
-            className={`cursor-pointer ${activeLink === "How to Start"
+            className={`cursor-pointer ${activeLink === "Find a Tutor"
               ? "bg-[#DBD6F569] font-semibold px-4 py-2 rounded-[25px]"
               : "text-[#152F56] font-semibold text-[16px] hover:text-gray-800"
               }`}
-            onClick={() => scrollToSection("hero", "How to Start")}
-          >How to Start</li>
+            onClick={() => scrollToSection("find-tutor", "Find a Tutor")}
+          >Find a Tutor</li> 
           <li
             className={`cursor-pointer ${activeLink === "Courses"
               ? "bg-[#DBD6F569] font-semibold px-4 py-2 rounded-[25px]"
@@ -91,13 +91,6 @@ const Navbar = () => {
               }`}
             onClick={() => scrollToSection("courses", "Courses")}
           >Courses</li>
-          <li
-            className={`cursor-pointer ${activeLink === "Find a Tutor"
-              ? "bg-[#DBD6F569] font-semibold px-4 py-2 rounded-[25px]"
-              : "text-[#152F56] font-semibold text-[16px] hover:text-gray-800"
-              }`}
-            onClick={() => scrollToSection("find-tutor", "Find a Tutor")}
-          >Find a Tutor</li>
           <li
             className={`cursor-pointer ${activeLink === "Become a Tutor"
               ? "bg-[#DBD6F569] font-semibold px-4 py-2 rounded-[25px]"
@@ -112,6 +105,14 @@ const Navbar = () => {
               onClick={() => scrollToSection("price", "Pricing & Plan")}
               ><Link to="/pricing-plan" className="text-[#152F56] text-[16px] font-semibold hover:text-gray-800">
           Pricing & Plan
+        </Link></li>
+          <li className={`cursor-pointer ${activeLink === "Resources"
+              ? "bg-[#DBD6F569] font-semibold px-4 py-2 rounded-[25px]"
+              : "text-[#152F56] text-[16px] font-semibold hover:text-gray-800"
+              }`}
+              onClick={() => scrollToSection("blog", "Resources")}
+              ><Link to="/resourses" className="text-[#152F56] text-[16px] font-semibold hover:text-gray-800">
+          Resources
         </Link></li>
           <li>
             <button onClick={redirectToTelegram} className="bg-gradient-to-b from-[#152F56] to-[#2E67BC] text-white font-bold py-2 px-6 rounded-[25px]">
@@ -143,10 +144,10 @@ const Navbar = () => {
           <ul className="flex flex-col p-6 space-y-6">
             <li
               className="text-[#152F56] text-[16px] font-semibold hover:text-gray-800 flex gap-2"
-              onClick={() => scrollToSection("hero", "How to Start")}
+              onClick={() => scrollToSection("find-tutor", "Find a Tutor")}
             >
-              <img src={start} alt="" />
-              <span>How to Start</span>
+              <img src={tutor} alt="" />
+              <span>Find a Tutor</span>
             </li>
             <li
               className="text-[#152F56] text-[16px] font-semibold hover:text-gray-800 flex gap-2"
@@ -154,13 +155,6 @@ const Navbar = () => {
             >
               <img src={course} alt="" />
               <span>Courses</span>
-            </li>
-            <li
-              className="text-[#152F56] text-[16px] font-semibold hover:text-gray-800 flex gap-2"
-              onClick={() => scrollToSection("find-tutor", "Find a Tutor")}
-            >
-              <img src={tutor} alt="" />
-              <span>Find a Tutor</span>
             </li>
             <li
               className="text-[#152F56] text-[16px] font-semibold hover:text-gray-800 flex gap-2"
@@ -173,6 +167,12 @@ const Navbar = () => {
               <img src={becometutor} alt="" />
               <span><Link to="/pricing-plan" className="text-[#152F56] text-[16px] font-semibold hover:text-gray-800">
                 Pricing & Plan
+              </Link></span>
+            </li>
+            <li>
+              <img src={becometutor} alt="" />
+              <span><Link to="/resourses" className="text-[#152F56] text-[16px] font-semibold hover:text-gray-800">
+                Resources
               </Link></span>
             </li>
             <li
