@@ -324,21 +324,35 @@ const tutors = [
   },
 ];
 
+// const API_ENDPOINT = "https://api.lantern.academy/api/reviews";
+// console.log(`Submitting review to: ${API_ENDPOINT}`); // Debugging log
+// console.log("Sending review data:", JSON.stringify(reviewData, null, 2));
+
 
 const FindTutorPage = () => {
   const [ratings, setRatings] = useState(() => tutors.map(() => 0));
   const [reviews, setReviews] = useState(() => tutors.map(() => "")); // Store reviews
+  const [loading, setLoading] = useState(() => tutors.map(() => false)); // Loading state for each tutor
+  const [messages, setMessages] = useState(() => tutors.map(() => "")); // Store success/error messages
+
 
   const handleStarClick = (index, tutorIndex) => {
-    setRatings(prevRatings => {
+    setRatings((prevRatings) => {
       const newRatings = [...prevRatings];
       newRatings[tutorIndex] = index + 1;
       return newRatings;
     });
+
+    // Clear error when a rating is selected
+    setMessages((prevErrors) => {
+      const newErrors = [...prevErrors];
+      newErrors[tutorIndex] = "";
+      return newErrors;
+    });
   };
 
   const handleReviewChange = (event, tutorIndex) => {
-    setReviews(prevReviews => {
+    setReviews((prevReviews) => {
       const newReviews = [...prevReviews];
       newReviews[tutorIndex] = event.target.value;
       return newReviews;
@@ -346,18 +360,65 @@ const FindTutorPage = () => {
   };
 
   const handleReviewSubmit = async (tutorIndex) => {
+    if (ratings[tutorIndex] === 0) {
+      setMessages((prevMessages) => {
+        const newMessages = [...prevMessages];
+        newMessages[tutorIndex] = "Please rate the tutor before submitting.";
+        return newMessages;
+      });
+      return;
+    }
+
+    setLoading((prevLoading) => {
+      const newLoading = [...prevLoading];
+      newLoading[tutorIndex] = true;
+      return newLoading;
+    });
+
     const reviewData = {
       tutor: tutors[tutorIndex].name,
       rating: ratings[tutorIndex],
-      message: reviews[tutorIndex], // Pass message instead of "review"
+      message: reviews[tutorIndex],
     };
 
+
+    const API_ENDPOINT = "https://api.lantern.academy/api/reviews";
+    console.log(`Submitting review to: ${API_ENDPOINT}`); // Debugging log
+    console.log("Sending review data:", JSON.stringify(reviewData, null, 2));
+
     try {
-      const response = await submitReview(reviewData); // Call the submitReview function
-      alert("Review submitted successfully!");
+      const response = await fetch(API_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reviewData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit review");
+      }
+
+      setMessages((prevMessages) => {
+        const newMessages = [...prevMessages];
+        newMessages[tutorIndex] = "Review submitted successfully!";
+        return newMessages;
+      });
+
+      console.log("Review submitted successfully!");
     } catch (error) {
       console.error("Error submitting review:", error);
-      alert("Failed to submit review.");
+      setMessages((prevMessages) => {
+        const newMessages = [...prevMessages];
+        newMessages[tutorIndex] = "Failed to submit review. Please try again.";
+        return newMessages;
+      });
+    } finally {
+      setLoading((prevLoading) => {
+        const newLoading = [...prevLoading];
+        newLoading[tutorIndex] = false; // Reset loading
+        return newLoading;
+      });
     }
   };
 
@@ -455,7 +516,7 @@ const FindTutorPage = () => {
                 <div
                   id="overlay"
                   onClick={handleOverlayClick}
-                  
+
                 >
                   <StudentDetailsForm closeModal={closeModal} />
                 </div>
@@ -481,9 +542,19 @@ const FindTutorPage = () => {
                   ))}
                 </div>
                 <span className="optional">(Optional)</span>
-                <textarea className="review-textarea" placeholder="Write your review here..."  value={reviews[tutorIndex]}
+                <textarea className="review-textarea" placeholder="Write your review here..." value={reviews[tutorIndex]}
                   onChange={(event) => handleReviewChange(event, tutorIndex)}></textarea>
-                <button className="register-btn submit-btn"  onClick={() => handleReviewSubmit(tutorIndex)}>Submit</button>
+                <button className="register-btn submit-btn" onClick={() => handleReviewSubmit(tutorIndex)} disabled={loading[tutorIndex]}>{loading[tutorIndex] ? "Submitting..." : "Submit"}</button>
+              {messages[tutorIndex] && (
+                <p
+                  className={`mt-1 text-sm font-medium ${messages[tutorIndex] === "Review submitted successfully!"
+                      ? "text-green-600 bg-green-100 border border-green-400 p-2 rounded-lg"
+                      : "text-red-600 bg-red-100 border border-red-400 p-2 rounded-lg"
+                    }`}
+                >
+                  {messages[tutorIndex]}
+                </p>
+              )}
               </div>
             </div>
             {/* <div className="seeAllContainer">
