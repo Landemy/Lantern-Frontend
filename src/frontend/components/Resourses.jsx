@@ -17,13 +17,13 @@ const BlogList = () => {
                         News from the tech and telecoms sector in Nigeria
                     </p>
                     <div className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 w-full blog-text">
-                        {blogPosts.map((post) => (
-                        <motion.div whileHover={{ scale: 1.05 }} key={post.id} className="p-4 border rounded-lg shadow-lg flex items-center gap-4">
-                            <img src={post.image} alt={post.title} className="w-20 h-20 object-cover rounded" />
+                        {blogPosts.map((resource) => (
+                        <motion.div whileHover={{ scale: 1.05 }} key={resource.id} className="p-4 border rounded-lg shadow-lg flex items-center gap-4">
+                            <img src={resource.image} alt={resource.title} className="w-20 h-20 object-cover rounded" />
                             <div>
-                            <h2 className="text-xl font-bold text-darkBlue">{post.title}</h2>
-                            <p className="text-gray-800 text-sm pt-4 pb-2 font-bold dtext">By {post.author} | ⏲ {post.date}</p>
-                            <Link to={`/resourses/post/${post.id}`} className="text-darkBlue hover:underline text-sm">
+                            <h2 className="text-xl font-bold text-darkBlue">{resource.title}</h2>
+                            <p className="text-gray-800 text-sm pt-4 pb-2 font-bold dtext">By {resource.author} | ⏲ {resource.date}</p>
+                            <Link to={`/resources/resource/${resource.id}`} className="text-darkBlue hover:underline text-sm">
                                 Read More
                             </Link>
                             </div>

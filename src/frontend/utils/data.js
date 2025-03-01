@@ -147,7 +147,7 @@ export const courses = [
 
 export const blogPosts = [
   {
-    id: 1,
+    id: 'Kwara-State-launches-coding-and-digital-literacy-training-in-50-public-schools',
     title: "Kwara State launches coding and digital literacy training in 50 public schools",
     author: "Olumide Emmanuel",
     date: "Feb. 27, 2025",

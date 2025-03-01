@@ -13,8 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Body />} /> 
         <Route path="/pricing-plan" element={<PricePlan />} />
-        <Route path="/resourses" element={<BlogList />} />
-        <Route path="/resourses/post/:postId" element={<BlogPost />} />
+        <Route path="/resources" element={<BlogList />} />
+        <Route path="/resources/resource/:resourceId" element={<BlogPost />} />
       </Routes>
     </Router>
   );

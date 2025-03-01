@@ -111,7 +111,7 @@ const Navbar = () => {
               : "text-[#152F56] text-[16px] font-semibold hover:text-gray-800"
               }`}
               onClick={() => scrollToSection("blog", "Resources")}
-              ><Link to="/resourses" className="text-[#152F56] text-[16px] font-semibold hover:text-gray-800">
+              ><Link to="/resources" className="text-[#152F56] text-[16px] font-semibold hover:text-gray-800">
           Resources
         </Link></li>
           <li>
@@ -171,7 +171,7 @@ const Navbar = () => {
             </li>
             <li>
               <img src={becometutor} alt="" />
-              <span><Link to="/resourses" className="text-[#152F56] text-[16px] font-semibold hover:text-gray-800">
+              <span><Link to="/resources" className="text-[#152F56] text-[16px] font-semibold hover:text-gray-800">
                 Resources
               </Link></span>
             </li>
