@@ -222,7 +222,7 @@ li {
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0.096px;
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
   padding-left: 0; 
   position: relative;
   display: flex;
@@ -468,7 +468,7 @@ margin-bottom: 20px;
 
   li {
     font-size: 14px;
-    margin-bottom: 12px;
+    /* margin-bottom: 12px; */
   }
 
   .course {
@@ -516,6 +516,14 @@ margin-bottom: 20px;
   .tutor-card {
     padding: 20px;
   }
+}
+.tutor-learn{
+  list-style-type: disc !important;
+}
+
+.tutor-learn li{
+  font-size: 13px !important;
+  line-height: 20px;
 }
 
 

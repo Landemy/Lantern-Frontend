@@ -12,25 +12,33 @@ import satImage from "../../assets/sat.svg";
 import icanImage from "../../assets/ican.png";
 import pmImage from "../../assets/pm.png";
 import duolingoImage from "../../assets/duolingo.png";
-import kwaraBlog from "../../assets/blog/kwara.jpg"
+import kwaraBlog from "../../assets/blog/kwara.jpg";
+import mathImage from "../../assets/mathicon.webp";
+import englishImage from "../../assets/englishicon.webp";
+import chemistryImage from "../../assets/chemistryicon.webp";
+import biologyImage from "../../assets/biologyicon.webp";
+import physicsImage from "../../assets/physicicon.webp";
+import literatureImage from "../../assets/litenglishicon.webp";
+import accountingImage from "../../assets/faccountingicon.webp";
 
-export const list_data = [
-  [
-    "All you need is a computer, internet and willingness to learn",
-    "No need to be good at computers, math, or science",
-    "Our classes/courses is for everyone, and you can start from zero",
-  ],
-  [
-    "Explore the courses/classes that fits you",
-    `Whether it's ICAN,web design, digital marketing or ATS, there's a space for you`,
-    "No need to worry-it's all beginner friendly",
-  ],
-  [
-    "Select a tutor on this website and start learning",
-    "Our website connects you with a tutor that fits your learning style",
-    "You will get mentorship on how to get a  job",
-  ],
-];
+
+// export const list_data = [
+//   [
+//     "All you need is a computer, internet and willingness to learn",
+//     "No need to be good at computers, math, or science",
+//     "Our classes/courses is for everyone, and you can start from zero",
+//   ],
+//   [
+//     "Explore the courses/classes that fits you",
+//     `Whether it's ICAN,web design, digital marketing or ATS, there's a space for you`,
+//     "No need to worry-it's all beginner friendly",
+//   ],
+//   [
+//     "Select a tutor on this website and start learning",
+//     "Our website connects you with a tutor that fits your learning style",
+//     "You will get mentorship on how to get a  job",
+//   ],
+// ];
 
 export const tutor_guide = [
   [
@@ -142,7 +150,54 @@ export const courses = [
     path: duolingoImage,
     subText: "Get ahead of others with multilingual skills",
   },
-  
+  {
+    title: "Duolingo",
+    text: "Speak multiple languages and master the art of communication",
+    path: duolingoImage,
+    subText: "Get ahead of others with multilingual skills",
+  },
+  {
+    title: "Mathematics",
+    text: "Develop critical thinking and problem-solving skills with numbers.",
+    path: mathImage,
+    subText: "Master equations and logical reasoning.",
+  },
+  {
+    title: "English",
+    text: "Enhance your communication skills with grammar, vocabulary, and writing.",
+    path: englishImage,
+    subText: "Fluency opens doors to global opportunities.",
+  },
+  {
+    title: "Physics",
+    text: "Understand the fundamental laws that govern motion, energy, and forces.",
+    path: physicsImage,
+    subText: "Explore the mechanics of the universe.",
+  },
+  {
+    title: "Chemistry",
+    text: "Unravel the secrets of matter, reactions, and the periodic table.",
+    path: chemistryImage,
+    subText: "Discover the building blocks of life.",
+  },
+  {
+    title: "Biology",
+    text: "Study living organisms and how they interact with the environment.",
+    path: biologyImage,
+    subText: "Unlock the mysteries of life and evolution.",
+  },
+  {
+    title: "Financial Accounting",
+    text: "Gain essential skills in managing finances, auditing, and bookkeeping.",
+    path: accountingImage,
+    subText: "Master the language of business and finance.",
+  },
+  {
+    title: "Literature in English",
+    text: "Dive into the world of storytelling, poetry, and classic literature.",
+    path: literatureImage,
+    subText: "Experience the power of words and imagination.",
+  },
 ];
 
 export const blogPosts = [

@@ -5,9 +5,10 @@ import HeroPic from "../../assets/hero.png";
 import TopDesign from "../../layout/header/TopDesign";
 import Circle from "./icons/circle";
 import EmptyCircle from "./icons/empty_circle";
-import { courses, list_data, tutor_guide } from "../utils/data";
+import { courses, tutor_guide } from "../utils/data";
 import FaceShadow from "../../assets/face_shadow";
 import Popup from "../../assets/popup.jpg";
+// import arrowRight from "../../assets/arrowRight.svg";
 
 export default function Homepage() {
   const [showModal, setShowModal] = useState(false);
@@ -78,7 +79,7 @@ export default function Homepage() {
           </div>
         </div>
       )}
-      <div className="px-[1.5rem] py-[2rem] flex flex-col items-center space-y-[1rem] vlg:py-[3rem]">
+      {/* <div className="px-[1.5rem] py-[2rem] flex flex-col items-center space-y-[1rem] vlg:py-[3rem]">
         <h1 className="font-semibold flex flex-col items-center text-[1.5rem] text-darkBlue space-y-[3px] md:space-y-[10px] md:text-[2rem] vlg:text-[3rem]">
           <span className="block">
             <Circle />
@@ -118,7 +119,7 @@ export default function Homepage() {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
       {/* third screen */}
       <div className="bg-[#F3F1FC]">
         <TopDesign />
@@ -127,77 +128,76 @@ export default function Homepage() {
             <span className="md:*:h-[94px] md:*:w-[96px]">
               <FaceShadow />
             </span>
-            <span className="font-semibold text-darkBlue text-[1.5rem] md:text-[2rem] lg:text-[3rem]">
+            <span className="font-bold text-darkBlue desktop-heading">
               Our Courses/Classes
             </span>
           </h1>
 
-          <div className="flex flex-col space-y-[2rem] lg:mx-auto lg:max-w-[950px] lg:space-y-0 lg:grid lg:grid-cols-2 lg:[grid-gap:4rem]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1rem] lg:mx-auto lg:max-w-[1050px]">
             {courses.map((data, i) => (
               <div
                 key={i}
-                className="mx-auto max-w-[402px] lg:mx-0 lg:max-w-[none]  flex space-x-[8px] p-[1.5rem] pl-[1rem] rounded-[1rem] bg-[#F1F4F9] border-[1px] border-[#D7E5FB]"
+                className="flex flex-col justify-between w-full h-full p-[1.5rem] rounded-[1rem] bg-[#F1F4F9] border-[1px] border-[#D7E5FB]"
               >
-                <img
-                  src={data.path}
-                  className="w-[40px] h-[40px]"
-                  alt=""
-                />
-                <div className="space-y-[0.5rem]">
-                  <h1 className="text-darkBlue flex items-center text-[1.2rem]  md:text-[1.5rem] font-medium">
+                {/* Icon & Title */}
+                <div className="flex space-x-[8px]">
+                  <img src={data.path} className="w-[40px] h-[40px] rounded-full" alt="" />
+                  <h1 className="text-darkBlue text-[1.2rem] md:text-[1.5rem] font-medium">
                     {data.title}
                   </h1>
-                  <div className="space-y-[20px]">
-                    <p className="text-[1rem] text-darkBlue font-light">
-                      {data.text}
-                    </p>
+                </div>
 
-                    <div className="flex space-x-[1rem] items-center">
-                      <div className="text-[#6D7D95] hidden md:block">
-                        {data.subText}
-                      </div>
-                      <button className="flex  justify-center items-center space-x-[4px] text-[0.75rem] w-[127px] h-[31px] rounded-[24px] bg-[#F5F8FD] text-[#8594AA] border-[1px] border-[#152f5680]">
-                        <span>Learn more</span>
-                        <span>
-                          <img src="./arrowRight.svg" alt="" />
-                        </span>
-                      </button>
-                    </div>
-                  </div>
+                {/* Description */}
+                <p className="text-[1rem] text-darkBlue font-light mt-2 md:mt-0">{data.text}</p>
+
+                {/* Bottom Section */}
+                <div className="flex flex-col md:flex-row md:justify-between items-start md:items-center mt-4 md:mt-0">
+                  {/* SubText (Hidden on Small Screens) */}
+                  <div className="text-[#6D7D95] hidden md:block">{data.subText}</div>
+
+                  {/* Button (Fixed Size & Positioning) */}
+                  <button className="w-[170px] h-[31px] flex justify-center items-center space-x-[4px] px-4 py-2 rounded-[24px] bg-[#F5F8FD] text-[#8594AA] border-[1px] border-[#152f5680] text-[0.75rem] self-start md:self-auto mt-2 md:mt-0">
+                    <span>Learn more</span>
+                    {/* <span>
+                      <img src={arrowRight} alt="" />
+                    </span> */}
+                  </button>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </div>
-      <div className="px-[1.5rem] py-[2rem] flex flex-col items-center space-y-[1rem] vlg:py-[3rem]">
-        <h1 className="font-semibold flex flex-col items-center text-[1.5rem] text-darkBlue space-y-[3px] md:space-y-[10px] md:text-[2rem] vlg:text-[3rem]">
+      <div className="px-4 py-8 flex flex-col items-center space-y-4 lg:py-12">
+        <h1 className="font-bold flex flex-col items-center text-lg text-darkBlue space-y-1 md:space-y-2">
           <span className="block">
             <Circle />
           </span>
-          <span>How to get a Tutor</span>
+          <span className="desktop-heading py-5">How to get a Tutor</span>
         </h1>
 
         <div className="relative">
-          <div className="absolute top-[61px] left-[150px] hidden vlg:block h-[4px] w-[850px] bg-[#EFF3FC]"></div>
-          <div className="space-y-[2rem] vlg:space-y-0 grid vlg:grid-cols-3 vlg:[grid-gap:2rem]">
+          {/* Line Connector (Only Visible on Large Screens) */}
+          <div className="absolute top-[50px] left-[120px] hidden lg:block h-[3px] w-[750px] bg-[#EFF3FC]"></div>
+
+          {/* Grid Layout */}
+          <div className="space-y-6 md:space-y-0 grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-5">
             {tutor_guide.map((data, i) => (
-              <div
-                key={i}
-                className="py-[1rem] space-y-[1.5rem] flex flex-col items-center vlg:py-[2rem]"
-              >
+              <div key={i} className="py-4 space-y-6 flex flex-col items-center md:py-6">
+                {/* Step Number Box */}
                 <h1
-                  className={`z-[3] w-[68px] flex items-center justify-center rounded-[8px] h-[35px] p-[8px] md:text-[1.5rem] bg-darkBlue font-semibold text-white md:w-[108px] md:h-[61px] ${
+                  className={`z-10 w-14 flex items-center justify-center rounded-md h-9 text-base md:text-lg bg-darkBlue font-semibold text-white md:w-16 md:h-10 ${
                     i === 1 ? "bg-[#6392D9]" : i === 2 ? "bg-[#BDD1EF]" : ""
                   }`}
                 >
                   Step {i + 1}
                 </h1>
 
-                <div className="space-y-[2.5rem]">
+                {/* Step Details */}
+                <div className="space-y-5">
                   {data.map((el) => (
-                    <div key={el} className="space-y-[2.5rem] md:max-w-[368px]">
-                      <div className="text-center text-[1rem] text-darkBlue flex flex-col items-center space-y-[5px] vlg:flex-row vlg:text-left vlg:space-x-[8px]">
+                    <div key={el} className="space-y-5 md:max-w-[340px]">
+                      <div className="text-center text-base text-darkBlue flex flex-col items-center space-y-2 md:flex-row md:text-left md:space-x-2">
                         <span className="block">
                           <EmptyCircle />
                         </span>
