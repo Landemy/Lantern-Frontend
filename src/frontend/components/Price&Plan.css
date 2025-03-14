@@ -27,4 +27,10 @@
     .mb span{
         font-size: 30px;
     }
+    .price h1{
+        font-size: 2rem;
+    }
+    .price h2{
+        font-size: 1.5rem;
+    }
 }
