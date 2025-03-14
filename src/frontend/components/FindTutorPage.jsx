@@ -30,7 +30,7 @@ const tutors = [
     name: "Damilare   ",
     image: DamiPics,
     students: "198",
-    position: "Front-end Dev Tutor",
+    position: "Front-end Dev | Chemistry Tutor",
     rating: "5/5",
     reviews: "123",
     about:
@@ -70,7 +70,7 @@ const tutors = [
     name: "Solomon Zion",
     image: Solomon,
     students: "158",
-    position: "Full-Stack Web Tutor",
+    position: "Full-Stack Web | Mathematics Tutor",
     rating: "5/5",
     reviews: "323",
     about:
@@ -149,7 +149,7 @@ const tutors = [
     name: "Olumide     ",
     image: olumidePics,
     students: "500",
-    position: "IELTS Coordinator ",
+    position: "IELTS | English Tutor ",
     rating: "5/5",
     reviews: "99",
     about:
@@ -169,7 +169,7 @@ const tutors = [
     name: "Anuoluwapo     ",
     image: anuoluwapoPics,
     students: "324",
-    position: "GRE/GMAT Tutor",
+    position: "GRE/GMAT | Physics Tutor",
     rating: "5/5",
     reviews: "234",
     about:
@@ -269,7 +269,7 @@ const tutors = [
     name: "Busola    ",
     image: busolaPics,
     students: "324",
-    position: "Project Management Tutor",
+    position: "Project Management | Literature in English Tutor",
     rating: "5/5",
     reviews: "234",
     about:
@@ -329,7 +329,7 @@ const tutors = [
     name: "Dayo   ",
     image: dayoPics,
     students: "198",
-    position: "Front-end DevTutor",
+    position: "Front-end Dev Tutor",
     rating: "5/5",
     reviews: "123",
     about:

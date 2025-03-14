@@ -60,6 +60,48 @@ export const tutor_guide = [
 
 export const courses = [
   {
+    title: "Mathematics",
+    text: "Develop critical thinking and problem-solving skills with numbers.",
+    path: mathImage,
+    subText: "Master equations and logical reasoning.",
+  },
+  {
+    title: "English",
+    text: "Enhance your communication skills with grammar, vocabulary, and writing.",
+    path: englishImage,
+    subText: "Fluency opens doors to global opportunities.",
+  },
+  {
+    title: "Physics",
+    text: "Understand the fundamental laws that govern motion, energy, and forces.",
+    path: physicsImage,
+    subText: "Explore the mechanics of the universe.",
+  },
+  {
+    title: "Chemistry",
+    text: "Unravel the secrets of matter, reactions, and the periodic table.",
+    path: chemistryImage,
+    subText: "Discover the building blocks of life.",
+  },
+  {
+    title: "Biology",
+    text: "Study living organisms and how they interact with the environment.",
+    path: biologyImage,
+    subText: "Unlock the mysteries of life and evolution.",
+  },
+  {
+    title: "Financial Accounting",
+    text: "Gain essential skills in managing finances, auditing, and bookkeeping.",
+    path: accountingImage,
+    subText: "Master the language of business and finance.",
+  },
+  {
+    title: "Literature in English",
+    text: "Dive into the world of storytelling, poetry, and classic literature.",
+    path: literatureImage,
+    subText: "Experience the power of words and imagination.",
+  },
+  {
     title: "Product/Digital Marketing",
     text: "Master social media marketing, SEO and online ads ",
     path: dgImage,
@@ -155,48 +197,6 @@ export const courses = [
     text: "Speak multiple languages and master the art of communication",
     path: duolingoImage,
     subText: "Get ahead of others with multilingual skills",
-  },
-  {
-    title: "Mathematics",
-    text: "Develop critical thinking and problem-solving skills with numbers.",
-    path: mathImage,
-    subText: "Master equations and logical reasoning.",
-  },
-  {
-    title: "English",
-    text: "Enhance your communication skills with grammar, vocabulary, and writing.",
-    path: englishImage,
-    subText: "Fluency opens doors to global opportunities.",
-  },
-  {
-    title: "Physics",
-    text: "Understand the fundamental laws that govern motion, energy, and forces.",
-    path: physicsImage,
-    subText: "Explore the mechanics of the universe.",
-  },
-  {
-    title: "Chemistry",
-    text: "Unravel the secrets of matter, reactions, and the periodic table.",
-    path: chemistryImage,
-    subText: "Discover the building blocks of life.",
-  },
-  {
-    title: "Biology",
-    text: "Study living organisms and how they interact with the environment.",
-    path: biologyImage,
-    subText: "Unlock the mysteries of life and evolution.",
-  },
-  {
-    title: "Financial Accounting",
-    text: "Gain essential skills in managing finances, auditing, and bookkeeping.",
-    path: accountingImage,
-    subText: "Master the language of business and finance.",
-  },
-  {
-    title: "Literature in English",
-    text: "Dive into the world of storytelling, poetry, and classic literature.",
-    path: literatureImage,
-    subText: "Experience the power of words and imagination.",
   },
 ];
 

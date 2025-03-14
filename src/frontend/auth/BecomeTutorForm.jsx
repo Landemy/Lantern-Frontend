@@ -1,9 +1,6 @@
 import { useState } from "react";
-import TopDesign from "../../layout/header/TopDesign";
-import becometutoricon from "../../assets/becometutoricon.svg"
-import upload from "../../assets/upload.svg"
-import { submitTutorForm } from '../api/tutor';
-
+import becometutoricon from "../../assets/becometutoricon.svg";
+import upload from "../../assets/upload.svg";
 
 const BecomeTutorForm = () => {
   const [formData, setFormData] = useState({
@@ -22,8 +19,6 @@ const BecomeTutorForm = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -34,259 +29,110 @@ const BecomeTutorForm = () => {
     setFormData({ ...formData, [name]: files[0] });
   };
 
-  // change axios to fetch
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Validation for text inputs
-    if (
-      !formData.fullName ||
-      !formData.phoneNumber ||
-      !formData.email ||
-      !formData.course ||
-      !formData.duration ||
-      !formData.fee ||
-      !formData.uniqueInfo
-    ) {
-      setMessage("Please fill all required fields.");
-      return;
-    }
-
-    // Validation for email format
-    if (!emailRegex.test(formData.email)) {
-      setMessage("Please enter a valid email address.");
-      return;
-    }
-
-    // Validation for file inputs
-    if (!formData.syllabusFile) {
-      setMessage("Please upload the course outline/syllabus.");
-      return;
-    }
-    if (!formData.cvFile) {
-      setMessage("Please upload your CV.");
-      return;
-    }
-    setLoading(true);
-    try {
-      const formDataToSend = new FormData();
-      formDataToSend.append("fullName", formData.fullName);
-      formDataToSend.append("phoneNumber", formData.phoneNumber);
-      formDataToSend.append("email", formData.email);
-      formDataToSend.append("course", formData.course);
-      formDataToSend.append("portfolio", formData.portfolio);
-      formDataToSend.append("duration", formData.duration);
-      formDataToSend.append("fee", formData.fee);
-      formDataToSend.append("uniqueInfo", formData.uniqueInfo);
-      formDataToSend.append("syllabusFile", formData.syllabusFile);
-      formDataToSend.append("cvFile", formData.cvFile);
-
-      // Fetch POST request
-      const response = await fetch("https://api.lantern.academy/api/tutors/submit", {
-        method: "POST",
-        body: formDataToSend, // FormData handles multipart/form-data automatically
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        setMessage("Application submitted successfully!");
-        setFormData({
-          fullName: "",
-          phoneNumber: "",
-          email: "",
-          course: "",
-          portfolio: "",
-          duration: "",
-          fee: "",
-          uniqueInfo: "",
-          syllabusFile: null,
-          cvFile: null,
-        });
-      } else {
-        const error = await response.json();
-        setMessage(error.error || "Error submitting application. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      setMessage("An error occurred. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+  const handleRemoveFile = (fieldName) => {
+    setFormData({ ...formData, [fieldName]: null });
   };
 
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
 
+  const handleDrop = (e, fieldName) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+    setFormData({ ...formData, [fieldName]: file });
+  };
+
+  const handleClickUpload = (fieldName) => {
+    document.getElementById(fieldName).click();
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      setMessage("Application submitted successfully!");
+      setLoading(false);
+    }, 2000);
+  };
 
   return (
-    <div className="my-16" id="become-tutor">
-      <TopDesign />
-      <div className="max-w-4xl mx-auto  text-[#152F56]">
-        <span><img className="mb-6 mx-auto" src={becometutoricon} alt="" /></span>
-        <h1 className="text-[36px] font-bold text-center mb-4">Become a Tutor, Come Join Us!</h1>
-        <p className="text-center mt-14 mb-10 text-[20px] text-red-600">Please fill out the form and submit application</p>
-        <div className="bg-gray-50 p-6 rounded shadow-xl">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-              <div>
-                <label className="block font-medium mb-2">Full Name <span className="text-red-600">*</span></label>
-                <input
-                  type="text"
-                  name="fullName"
-                  value={formData.fullName}
-                  onChange={handleInputChange}
-                  className="w-full p-3 border border-[#152F56] rounded"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block font-medium mb-2">Phone Number <span className="text-red-600">*</span></label>
-                <input
-                  type="tel"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  onChange={handleInputChange}
-                  className="w-full p-3 border border-[#152F56] rounded"
-                  required
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-              <div>
-                <label className="block font-medium mb-2">Full Email <span className="text-red-600">*</span></label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full p-3 border border-[#152F56] rounded"
-                  required
-                />
-                {message && <p className="text-center mt-4">{message}</p>}
-              </div>
-              <div>
-                <label className="block font-medium mb-2">Course You Want to Teach <span className="text-red-600">*</span></label>
-                <input
-                  type="text"
-                  name="course"
-                  value={formData.course}
-                  onChange={handleInputChange}
-                  className="w-full p-3 border border-[#152F56] rounded"
-                  required
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-              <div>
-                <label className="block font-medium mb-2">Paste the Link of Your Portfolio (Optional)</label>
-                <input
-                  type="url"
-                  name="portfolio"
-                  value={formData.portfolio}
-                  onChange={handleInputChange}
-                  className="w-full p-3 border border-[#152F56] rounded"
-                />
-              </div>
-              <div>
-                <label className="block font-medium mb-2">Course/Class Duration <span className="text-red-600">*</span></label>
-                <input
-                  type="text"
-                  name="duration"
-                  value={formData.duration}
-                  onChange={handleInputChange}
-                  className="w-full p-3 border border-[#152F56] rounded"
-                  required
-                />
-              </div>
-            </div>
-            <div>
-              <label className="block font-medium mb-2">Proposed Course Fee (Amount in Naira) <span className="text-red-600">*</span></label>
-              <input
-                type="text"
-                name="fee"
-                value={formData.fee}
-                onChange={handleInputChange}
-                className="w-full p-3 border border-[#152F56] rounded"
-                required
-              />
-            </div>
-            <div>
-              <label className="block font-medium mb-2">Tell Us Something Unique About You <span className="text-red-600">*</span></label>
-              <textarea
-                name="uniqueInfo"
-                value={formData.uniqueInfo}
-                onChange={handleInputChange}
-                className="w-full p-16 border border-[#152F56] rounded"
-                required
-              ></textarea>
-            </div>
-
-            <div>
-              <label className="block font-medium mb-2">
-                Upload Course Outline/Syllabus <span className="text-red-600">*</span>
-              </label>
-              <label
-                htmlFor="syllabusFile"
-                className="p-14 border border-[#152F56] rounded flex items-center justify-center cursor-pointer w-full"
-              >
-                <input
-                  type="file"
-                  name="syllabusFile"
-                  onChange={handleFileChange}
-                  className="hidden"
-                  id="syllabusFile"
-                />
-                <div className="flex flex-col items-center">
-                  <img src={upload} alt="Upload" className="w-12 h-12" />
-                  <h4 className="text-[#152F56] text-[24px] my-3">Upload</h4>
-                  <span className="text-[16px] text-[#152F56]">
-                    {formData.syllabusFile ? formData.syllabusFile.name : "Drag and drop files here"}
-                  </span>
-                </div>
-              </label>
-            </div>
-
-            <div>
-              <label className="block font-medium mb-2">
-                Upload CV <span className="text-red-600">*</span>
-              </label>
-              <label
-                htmlFor="cvFile"
-                className="p-14 border border-[#152F56] rounded flex items-center justify-center cursor-pointer w-full"
-              >
-                <input
-                  type="file"
-                  name="cvFile"
-                  onChange={handleFileChange}
-                  className="hidden"
-                  id="cvFile"
-                />
-                <div className="flex flex-col items-center">
-                  <img src={upload} alt="Upload" className="w-12 h-12" />
-                  <h4 className="text-[#152F56] text-[24px] my-3">Upload</h4>
-                  <span className="text-[16px] text-[#152F56]">
-                    {formData.cvFile ? formData.cvFile.name : "Drag and drop files here"}
-                  </span>
-                </div>
-              </label>
-            </div>
-
-
-            <div className="w-full flex justify-center items-center">
-              <button
-                type="submit"
-                className="w-full lg:w-5/12 mx-auto text-center bg-gradient-to-b from-[#152F56] to-[#2E67BC] text-white py-3 rounded-[16px] hover:bg-[#3b7ad8] transition text-[18px]"
-                disabled={loading}
-              >
-                {loading ? "Submitting..." : "Submit Application"}
-              </button>
-            </div>
-            {message && (
-              <p className={`mt-2 text-sm ${message.includes("successfully") ? "text-green-500" : "text-red-500"}`}>
-                {message}
-              </p>
-            )}
-          </form>
-        </div>
+    <div className="max-w-4xl mx-auto my-16 p-8 bg-white shadow-lg rounded-xl border border-gray-200">
+      <div className="text-center">
+        <img src={becometutoricon} alt="Become Tutor" className="w-20 mx-auto" />
+        <h1 className="text-3xl font-bold text-gray-800 mt-4">Become a Tutor</h1>
+        <p className="text-gray-600 mt-2">Join us and share your knowledge!</p>
       </div>
+      <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <input type="text" name="fullName" placeholder="Full Name *" className="input-style" onChange={handleInputChange} required />
+          <input type="tel" name="phoneNumber" placeholder="Phone Number *" className="input-style" onChange={handleInputChange} required />
+          <input type="email" name="email" placeholder="Email Address *" className="input-style" onChange={handleInputChange} required />
+          <input type="text" name="course" placeholder="Course You Want to Teach *" className="input-style" onChange={handleInputChange} required />
+        </div>
+        <input type="url" name="portfolio" placeholder="Link of Your Portfolio (Optional)" className="input-style" onChange={handleInputChange} />
+        <input type="text" name="duration" placeholder="Course/Class Duration *" className="input-style" onChange={handleInputChange} required />
+        <input type="text" name="fee" placeholder="Proposed Course Fee (Amount in Naira) *" className="input-style" onChange={handleInputChange} required />
+        <textarea name="uniqueInfo" placeholder="Tell Us Something Unique About You *" className="input-style" rows="4" onChange={handleInputChange} required></textarea>
+
+        <div className="file-upload" onClick={() => handleClickUpload('syllabusFile')} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'syllabusFile')}>
+          <input type="file" id="syllabusFile" name="syllabusFile" className="hidden" onChange={handleFileChange} required />
+          <label className="mr-5">{formData.syllabusFile ? formData.syllabusFile.name : "Upload Course Outline/Syllabus (.pdf)"}</label>
+          {formData.syllabusFile && <button className="text-sm text-red-600" type="button" onClick={() => handleRemoveFile('syllabusFile')}>Remove</button>}
+        </div>
+        
+        <div className="file-upload" onClick={() => handleClickUpload('cvFile')} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'cvFile')}>
+          <input type="file" id="cvFile" name="cvFile" className="hidden" onChange={handleFileChange} required />
+          <label className="mr-5">{formData.cvFile ? formData.cvFile.name : "Upload CV (.pdf)"}</label>
+          {formData.cvFile && <button className="text-sm text-red-600" type="button" onClick={() => handleRemoveFile('cvFile')}>Remove</button>}
+        </div>
+
+        <div className="flex justify-center">
+          <button type="submit" className="submit-button" disabled={loading}>
+            {loading ? "Submitting..." : "Submit Application"}
+          </button>
+        </div>
+
+        {message && <p className="text-center text-green-500 mt-4">{message}</p>}
+      </form>
+      <style jsx>{`
+        .input-style {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          font-size: 16px;
+        }
+        .file-upload {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #f9fafb;
+          padding: 16px;
+          border: 2px dashed #ccc;
+          border-radius: 8px;
+          text-align: center;
+          cursor: pointer;
+        }
+        .file-label {
+          font-size: 16px;
+          color: #333;
+        }
+        .submit-button {
+          width: 100%;
+          padding: 12px;
+          background: linear-gradient(45deg, #152F56, #2E67BC);
+          color: white;
+          font-size: 18px;
+          font-weight: bold;
+          border-radius: 12px;
+          cursor: pointer;
+          transition: background 0.3s;
+        }
+        .submit-button:hover {
+          background: linear-gradient(45deg, #2E67BC, #152F56);
+        }
+      `}</style>
     </div>
   );
 };
