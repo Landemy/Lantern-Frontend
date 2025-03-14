@@ -128,7 +128,7 @@ export default function Homepage() {
             <span className="md:*:h-[94px] md:*:w-[96px]">
               <FaceShadow />
             </span>
-            <span className="font-bold text-darkBlue desktop-heading">
+            <span className="font-bold text-darkBlue desktop-head">
               Our Courses/Classes
             </span>
           </h1>
@@ -173,7 +173,7 @@ export default function Homepage() {
           <span className="block">
             <Circle />
           </span>
-          <span className="desktop-heading py-5">How to get a Tutor</span>
+          <span className="desktop-head py-5">How to get a Tutor</span>
         </h1>
 
         <div className="relative">

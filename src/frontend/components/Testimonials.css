@@ -26,6 +26,15 @@ font-size: 36px;
 font-weight: 600;
 display: block;
   }
+  .desktop-head{
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #152F56;
+text-align: center;
+font-size: 36px;
+font-weight: 600;
+display: block;
+  }
  
   .mobile-heading{
     text-align: center;
@@ -104,6 +113,9 @@ font-weight: 600;
     }
     .desktop-heading{
         display: none;
+      }
+    .desktop-head{
+      font-size: 30px;
       }
       .mobile-heading{
         display: block;
