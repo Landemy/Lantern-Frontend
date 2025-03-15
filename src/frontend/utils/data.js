@@ -192,12 +192,6 @@ export const courses = [
     path: duolingoImage,
     subText: "Get ahead of others with multilingual skills",
   },
-  {
-    title: "Duolingo",
-    text: "Speak multiple languages and master the art of communication",
-    path: duolingoImage,
-    subText: "Get ahead of others with multilingual skills",
-  },
 ];
 
 export const blogPosts = [
