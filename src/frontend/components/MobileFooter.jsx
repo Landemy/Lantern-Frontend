@@ -128,6 +128,7 @@ const MobileFooter = () => {
                         Follow us:
                         <span className="ml-7"><a href="https://x.com/lantern_academy?s=21" target="_blank"><img src={twitterlogo} alt="Twitter" /></a></span>
                         <span className="ml-7"><a href="https://www.facebook.com/share/16P2wXSyNp/?mibextid=wwXlfr" target="_blank"><img src={facebooklogo} alt="Facebook" /></a></span>
+                        <span className="ml-7"><a href="https://www.instagram.com/lanternacademyofficial?igsh=ZmVlYWVnbDBwbWJl&utm_source=qr" target="_blank"><img src={instagramlogo} alt="Facebook" width="32px" className="instalogo"/></a></span>
                         <span className="ml-7"><a href="https://www.linkedin.com/company/lanternng/" target="_blank"><img src={linkedinlogo} alt="LinkedIn" /></a></span>
                     </p>
                 </div>

@@ -525,5 +525,8 @@ margin-bottom: 20px;
   font-size: 13px !important;
   line-height: 20px;
 }
-
+.instalogo{
+  border: 4px solid white;
+  border-radius: 5px;
+}
 
