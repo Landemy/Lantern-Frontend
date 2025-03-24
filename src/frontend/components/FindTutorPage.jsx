@@ -6,14 +6,13 @@ import Graduation from '../../assets/graduationcap.svg';
 import DamiPics from "../../assets/dami.png";
 import Solomon from "../../assets/solomon.jpg";
 import oluPics from "../../assets/olumide.png";
-import ochayiPics from "../../assets/ochayi.png";
 import temiPics from "../../assets/temi.png";
 import maryPics from "../../assets/mary.png";
 import timiPics from "../../assets/timi.jpg";
 import anuoluwapoPics from "../../assets/anuoluwapo.svg"
 import ayoPics from "../../assets/ayodele.png";
 import bamidelePics from "../../assets/bamidele.png";
-import adesewaPics from "../../assets/adesewa.png";
+import abayomi from "../../assets/abayomi.jpg"
 import dayoPics from "../../assets/dayo.png";
 import busolaPics from "../../assets/busola.png";
 import natPics from "../../assets/nat.png";
@@ -101,26 +100,6 @@ const tutors = [
       "No coding experience needed we'll teach you step by step.",
       "Master popular coding languages like HTML, CSS, JavaScript and Python.",
       "Prepare for jobs like web developer or software engineer.",
-      "Earn a certificate.",
-    ],
-  },
-  {
-    heading: "UX/UI Design & Copywriting Tutors",
-    name: "Ochayi    ",
-    image: ochayiPics,
-    students: "188",
-    position: "UX/UI design & Copy-Writing Tutor",
-    rating: "5/5",
-    reviews: "109",
-    about:
-      "I’m Ochayi, a creative UI/UX designer & Copywriter. My students have mastered UX/UI design and Copy-writing, leading to roles in UX/UI design and Copy writing.",
-    course: "UX/UI design & Copy-Writing course",
-    type: "online classes only",
-    learn: [
-      "No design experience needed – it’s beginner-friendly ",
-      "Understand the basics of user experience (UX) and user interface (UI) design & Copywriting",
-      "Master Ux research and how to create apps and website using tools like figma",
-      "Get my 2025 secret tips to get jobs in UI/UX design or creative tech roles or copywriting.",
       "Earn a certificate.",
     ],
   },
@@ -245,26 +224,6 @@ const tutors = [
     ],
   },
   {
-    heading: "UI Design Tutors",
-    name: "Adesewa   ",
-    image: adesewaPics,
-    students: "121",
-    position: "UI Design Tutor",
-    rating: "5/5",
-    reviews: "99",
-    about:
-      "I’m Adesewa, a creative UI design, with years of experience. I can’t wait to have you as my student.",
-    course: "UI Design course",
-    type: "online classes only",
-    learn: [
-      "Its beginner friendly. Anyone can enroll. ",
-      "Master design principles, such as layout, typography, and color theory, to create visually appealing user interfaces.",
-      "Learn to use design tools like Figma, Sketch, and Adobe XD to bring your designs to life",
-      "Get tips on how to get jobs as a UI Designer",
-      "Earn a certificate.",
-    ],
-  },
-  {
     heading: "Project Management Tutors",
     name: "Busola    ",
     image: busolaPics,
@@ -285,7 +244,7 @@ const tutors = [
     ],
   },
   {
-    heading: "Product Design Tutors",
+    heading: "Product Design Tutor",
     name: "Bamidele     ",
     image: bamidelePics,
     students: "121",
@@ -301,6 +260,26 @@ const tutors = [
       "Master design principles, such as layout, typography, and color theory, to create visually appealing user interfaces.",
       "Learn to use design tools like Figma, Sketch, and Adobe XD to bring your designs to life",
       "Get tips on how to get jobs as a product Designer",
+      "Earn a certificate.",
+    ],
+  },
+  {
+    heading: "Digital/Product Marketing Tutor",
+    name: "Abayomi Jolayemi     ",
+    image: abayomi,
+    students: "135",
+    position: "Digital/Product Marketing Tutor",
+    rating: "5/5",
+    reviews: "199",
+    about:
+      "I’m Abayomi, a creative digital and product designer, with years of experience. I can’t wait to have you as my student.",
+    course: "Product Design course",
+    type: "online classes only",
+    learn: [
+      "I’m Abayomi, a creative digital and product marketer, with years of experience. I can’t wait to have you as my student.",
+      "Master marketing principles, to create marketing strategies for visual appealing products.",
+      "Learn how to market your designs from Figma, Sketch, and Adobe XD to bring your product sales",
+      "Get tips on how to get jobs as a Product Marketer",
       "Earn a certificate.",
     ],
   },

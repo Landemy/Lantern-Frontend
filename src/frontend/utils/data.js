@@ -138,6 +138,12 @@ export const courses = [
     subText: "Remote job salary: $1,490",
   },
   {
+    title: "Cyber Security",
+    text: "Master how to run attacks defense on real machines in real time using upskilled techniques",
+    path: dgImage,
+    subText: "Remote job salary: $3,490",
+  },
+  {
     title: "Data Science/Analytics",
     text: "Master how to use data to help businesses grow and solve problems ",
     path: dataImage,
