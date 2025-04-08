@@ -57,7 +57,7 @@ const BecomeTutorForm = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto my-16 p-8 bg-white shadow-lg rounded-xl border border-gray-200">
+    <div className="max-w-4xl mx-auto my-16 p-8 bg-white shadow-lg rounded-xl border border-gray-200" id="become-a-tutor-form">
       <div className="text-center">
         <img src={becometutoricon} alt="Become Tutor" className="w-20 mx-auto" />
         <h1 className="text-3xl font-bold text-gray-800 mt-4">Become a Tutor</h1>
