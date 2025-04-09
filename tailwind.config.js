@@ -10,6 +10,9 @@ export default {
       screens: {
         vlg: "1280px",
       },
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif'],
+      },
     },
   },
   plugins: [],

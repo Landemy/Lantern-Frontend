@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "./components/Button";
 import { Input } from "./components/Input";
 import { Checkbox } from "./components/Checkbox";
+import "./Login.css"; // Import your CSS file for styles
+import Svg from "./components/Svg";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,41 +17,45 @@ export const Login = () => {
   };
 
   const socialOptions = ["Facebook", "Google"];
+  const navigate = useNavigate();
+
 
   return (
     <main className="bg-[#f8f9fb] flex justify-center w-full min-h-screen p-4">
-      <div className="bg-[#f8f9fb] w-full max-w-[1440px] flex flex-col lg:flex-row lg:h-[900px]">
+      <div className="bg-[#f8f9fb] w-full max-w-[1440px] flex flex-col lg:flex-row lg:h-[850px]">
         {/* Left side - Login form */}
-        <section className="flex flex-col w-full lg:w-[50%] items-center justify-center gap-10 pt-10 lg:pt-[50px] px-4 lg:px-[60px]">
+        <section className="flex flex-col w-full lg:w-[50%] items-center justify-center gap-10 pt-5 px-4 lg:px-[55px]">
           {/* Logo and brand */}
           <div className="flex flex-col w-[175px] items-center">
             <img
-              className="w-[30px] h-[43px]"
+              className="w-[30px] h-[43px] mb-2"
               alt="Lantern logo"
               src="https://c.animaapp.com/m97098i4TMEoYe/img/lantern-logo--1--removebg-preview-1.png"
             />
-            <h1 className="font-bold text-[#152f56] text-[32px] lg:text-[40px] tracking-[2px]">
+            <h1 className="font-extrabold text-[#152f56] text-[30px] lg:text-[40px] tracking-[2px] lantern-logo">
               Lantern
             </h1>
           </div>
 
           {/* Form content */}
-          <div className="flex flex-col items-start gap-8 w-full px-8 lg:px-[60px]">
-            <div className="text-xl lg:text-1xl">
+          <div className="flex flex-col items-start gap-4 w-full px-8 lg:px-[50px]">
+            <div className="text-[1.375rem] lg:text-[1.45rem]">
               <span className="font-semibold text-[#152f56]">EDUCATION BEYOUND THE FOUR WALLS</span>
               <br />
-              <span className="italic text-black text-base">
+              <span className="italic text-black text-base text-semibold"> 
                 "Your pathway to limitless career growth"
               </span>
             </div>
-
+            <span>
+                <span className="font-['Poppins',Helvetica] italic text-black text-xs">Welcome back, Please login to your account</span>
+              </span>
             <form onSubmit={handleLogin} className="flex flex-col items-end w-full">
               {/* Email input with label */}
               <div className="flex items-center w-full mb-4">
                 <div className="flex items-center w-full rounded-md">
                   <label
                     htmlFor="email"
-                    className="w-[126px] h-[60px] flex items-center justify-center bg-[#152f56] text-white rounded-l-md"
+                    className="w-[126px] h-[60px] flex items-center justify-left bg-[#152f56] text-white rounded-l-md pl-7"
                   >
                     Email
                   </label>
@@ -56,7 +63,8 @@ export const Login = () => {
                     id="email"
                     className="flex-1 h-[60px] border border-[#152f56]" style={{ borderRadius: "0 0.375rem 0.375rem 0" }}
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)} placeholder="brainycodes@gmail.com"
+                    type="email"
                   />
                 </div>
               </div>
@@ -66,7 +74,7 @@ export const Login = () => {
                 <div className="flex items-center w-full rounded-md">
                   <label
                     htmlFor="password"
-                    className="w-[126px] h-[60px] flex items-center justify-center bg-[#152f56] text-white rounded-l-md"
+                    className="w-[126px] h-[60px] flex items-center justify-left pl-6 bg-[#152f56] text-white rounded-l-md"
                   >
                     Password
                   </label>
@@ -75,7 +83,7 @@ export const Login = () => {
                     type="password"
                     className="flex-1 h-[60px] border border-[#152f56]" style={{ borderRadius: "0 0.375rem 0.375rem 0" }}
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)} placeholder="****************"
                   />
                 </div>
               </div>
@@ -92,30 +100,32 @@ export const Login = () => {
               </div>
 
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row items-center gap-5 w-full">
+              <div className="flex flex-col sm:flex-row items-center gap-5 w-full mb-4">
                 <Button
                   type="submit"
-                  className="w-full sm:w-auto text-lg h-[60px] border border-[#152f56]"
+                  className="w-[100px] text-md h-[50px] bg-[#152f56] text-white border-2 border-[#152f56]"
                 >
                   Login
                 </Button>
                 <Button
                   variant="outline"
                   type="button"
-                  className="w-full sm:w-auto text-lg h-[60px] border border-[#152f56]"
+                  onClick={() => navigate("/register")}
+                  className="w-[100px] text-md h-[50px] border-2 border-[#152f56] text-[#152f56]"
                 >
                   Sign Up
                 </Button>
+
               </div>
 
               {/* Social Login */}
               <div className="flex flex-col sm:flex-row items-center justify-between w-full mt-5 gap-2 sm:gap-0">
-                <p>Or Login with</p>
+                <p className="text-sm">Or Login with</p>
                 <div className="flex items-center gap-[30px]">
                   {socialOptions.map((option, index) => (
                     <button
                       key={index}
-                      className="text-[#152f56] font-medium hover:underline"
+                      className="text-[#152f56] font-medium"
                     >
                       {option}
                     </button>
@@ -129,11 +139,7 @@ export const Login = () => {
 
         {/* Right side - Illustration */}
         <section className="w-full lg:w-[50%] h-[300px] lg:h-auto bg-white flex items-center justify-center mt-10 lg:mt-0">
-          <img
-            src="https://illustrations.popsy.co/gray/student.svg"
-            alt="Educational Illustration"
-            className="max-w-[90%] max-h-[90%]"
-          />
+        <Svg />
         </section>
       </div>
     </main>

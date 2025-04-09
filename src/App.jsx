@@ -5,13 +5,14 @@ import PricePlan from "./frontend/components/Price&Plan";
 import BlogList from "./frontend/components/Resourses";
 import BlogPost from "./frontend/components/Resources_Single";
 import { Login } from "./frontend/account/Login";
+import { Register } from "./frontend/account/Register";
 import React from "react";
 
 function AppLayout() {
   const location = useLocation();
 
   // Paths where Navbar should be hidden
-  const hideNavbarPaths = ["/login"];
+  const hideNavbarPaths = ["/login", "/register"];
 
   const shouldHideNavbar = hideNavbarPaths.includes(location.pathname);
 
@@ -24,6 +25,7 @@ function AppLayout() {
         <Route path="/resources" element={<BlogList />} />
         <Route path="/resources/resource/:resourceId" element={<BlogPost />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </>
   );
