@@ -20,6 +20,7 @@ import olumidePics from "../../assets/olumideIELTS.png";
 import sekinatPics from "../../assets/sekinattolani.jpg";
 import estherPics from "../../assets/esthernehemiah.jpg";
 import StudentDetailsForm from "../auth/StudentDetailsForm";
+import { useNavigate } from "react-router-dom";
 import { submitReview } from "../api/review";
 
 
@@ -355,6 +356,7 @@ const FindTutorPage = () => {
   const [reviews, setReviews] = useState(() => tutors.map(() => "")); // Store reviews
   const [loading, setLoading] = useState(() => tutors.map(() => false)); // Loading state for each tutor
   const [messages, setMessages] = useState(() => tutors.map(() => "")); // Store success/error messages
+  const navigate = useNavigate();
 
   const [reviewModalId, setReviewModalId] = useState(null);
 
@@ -457,10 +459,17 @@ const FindTutorPage = () => {
   // StudentDetailsForm
   const [openModalId, setOpenModalId] = useState(null);
 
+  // const openModal = (id) => {
+  //   setOpenModalId(id); // Open the modal for the specific item
+  // };
   const openModal = (id) => {
-    setOpenModalId(id); // Open the modal for the specific item
+    const isLoggedIn = !!sessionStorage.getItem("lantern_token"); // or any user state/token check
+    if (!isLoggedIn) {
+      navigate("/login");
+    } else {
+      setOpenModalId(id);
+    }
   };
-
   const closeModal = () => {
     setOpenModalId(null); // Close all modals
   };

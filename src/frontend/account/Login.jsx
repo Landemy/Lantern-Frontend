@@ -14,6 +14,13 @@ export const Login = () => {
     e.preventDefault();
     console.log({ email, password });
     // Add your login logic here
+
+   
+
+     // You can replace this mock login with your real login logic
+  const mockToken = "123456"; // This would typically come from your backend after login
+  sessionStorage.setItem("lantern_token", mockToken); // Save token
+  navigate("/"); // Redirect after login
   };
 
   const socialOptions = ["Facebook", "Google"];
